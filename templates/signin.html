@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Catalog - Signin</title>
+<meta name="google-signin-scope" content="profile email">
+ <meta name="google-signin-client_id" content="595409718148-hgad6osjo607eal7ifpttdbp63peg7bf.apps.googleusercontent.com">
+{% endblock %}
+
+{% block styles %}
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='styles/signin.css')}}">
+<script src="{{url_for('static', filename='scripts/jquery.js')}}"></script>
+<script src="https://apis.google.com/js/platform.js?onload=start"></script>
+{% endblock %}
+
+{% block content %}
+<main id="site-content" role="main">
+	<div class="login-cotent container">
+		<div class="pagination-auth-content row">
+			<div class="pagination-auth-box col-md-4 col-md-offset-4">
+				<div class="pagination-auth__third-login">
+					<div class="third-login gool-signup">
+						<div
+              class="g-signin"
+              data-scope="profile email"
+              data-clientid="595409718148-hgad6osjo607eal7ifpttdbp63peg7bf.apps.googleusercontent.com"
+              data-redirecturi="postmessage"
+              data-accesstype="offline"
+              data-cookiepolicy="single_host_origin"
+              data-callback="onSignIn"
+            ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<script>
+  function onSignIn(googleUser) {
+    if (googleUser['code']) {
+      $.ajax({
+        type: 'POST',
+        url: '/gconnect?state={{STATE}}',
+        proccessData: false,
+        contentType: 'application/octet-stream; charset="utf-8"',
+        data: googleUser['code'],
+        success: function(result) {
+          if (result && result.code === 1) {
+            window.location.href = '/';
+          }
+        }
+      });
+    }
+  }
+</script>
+{% endblock %}

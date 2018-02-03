@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title%}
+<title>Catalog Home Page - Add a New Catalog.</title>
+{% endblock %}
+
+{% block styles %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/add.css') }}">
+{% endblock %}
+
+{% block content %}
+<main id="side-container" role="main">
+	<div class="container">
+		<div class = 'flash'>
+			{% with messages = get_flashed_messages() %}
+	      {% if messages %}
+	        <div id="flashBox" class="alert alert-success fade in flash" role="alert">
+	          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	          <ul>
+	          {% for message in messages %}
+	              <li> <strong> Alert </strong> {{ message }}</li>
+	          {% endfor %}
+	          </ul>
+	        </div>
+	        {% endif %}
+	    {% endwith %}
+		</div>
+		<form class="update-form" id="upgrade-form" method="POST">
+			<div class="input-area">
+				<label for="name">Catalog Name:</label>
+				<input required type ="text" placeholder="Please enter the catalog name you like" maxlength="100" value="" name="catalog" class="form-control" id="item-name" />
+			</div>
+			<div class="btn-area">
+				<button type="submit" class="btn btn-default" id="submit">Add Catalog</button>
+			</div>
+		</form>
+	</div>
+</main>
+
+<script type="text/javascript" src="{{url_for('static', filename='scripts/addCatalog.js')}}"></script>
+{% endblock %}

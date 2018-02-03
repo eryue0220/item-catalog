@@ -1,0 +1,20 @@
+<header role="header" class="catalog_header__container">
+	<h1 style="display: none;">Catalog</h1>
+	<div class="catalog-header__title">
+		<h3>
+			<a href="{{url_for('index')}}">Catalog APP</a>
+		</h3>
+	</div>
+	<nav class="nav_bar">
+		<div class="nav_bar_container">
+			<div class="user-area user-login__area">
+				{% if 'username' not in session %}
+				<a class="user-btn user-login__btn" href="{{url_for('signin')}}">Sign In</a>
+				{% else %}
+				<img class="user-profile" src="{{session['picture']}}" alt="user_profile"/>
+				<a class="user-btn user-login__btn user-signout js-user-signout">Sign Out</a>
+				{% endif %}
+			</div>
+		</div>
+	</nav>
+</header>

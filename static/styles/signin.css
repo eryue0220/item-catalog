@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@import url(common.css);
+@import url(header.css);
+
+/* Signin Page Style */
+
+.catalog_header__container {
+	border-bottom: 1px solid #DBDBDB;
+}
+
+.catalog-header__title h3 {
+	padding-right: 20px;
+	border-right: 1px solid #DBDBDB;
+}
+
+.nav_bar .user-nav__list:hover {
+	border-bottom: 2px solid #767676;
+}
+
+.pagination-auth-content .pagination-auth-box {
+	margin-top: 55px;
+	padding: 0 20px;
+	border: 1px solid #DBDBDB;
+}
+
+.pagination-auth__third-login {
+	margin: 20px 0;
+}
+
+.pagination-auth__third-login .gool-signup {
+	margin-bottom: 10px;
+}
+
+.pagination-auth__third-login .third-login .third-login__btn {
+	width: 100%;
+	padding: 6px 0;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	color: #fff;
+}
+
+.pagination-auth__third-login .gool-signup .third-login__btn {
+	background: #db5048;
+}
+
+.third-login__btn a {
+	color: #fff;
+}
